@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Application;
 
 class ApplicationController extends Controller
 {
@@ -11,7 +13,11 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
+
+        $applications = Application::all();
+        return Inertia::render('Application', [
+            'applications' => $applications
+        ]);
     }
 
     /**
